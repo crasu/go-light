@@ -18,7 +18,13 @@ function M.handle(client, request)
         end
     end
 
-    local color = string.lower(string.match(path,"/P(%w+)"))
+    local color = string.match(path,"/(%w+)")
+    
+    if color then
+        color = string.lower(color)
+    else
+        color = ""
+    end
 
     if method == "GET" and validate(color) then
         local buf = "HTTP/1.1 200 OK\n\n"
