@@ -27,11 +27,12 @@ Lua code to convert a toy traffic light into a extreme feedback device
 
 2. Make sure the microcontroller is connected to ttyUSB0 (needs: timer, gpio and string module)
 
+    esptool.py  --port /dev/ttyUSB0 erase_flash
     esptool.py  --port /dev/ttyUSB0 write_flash --flash_mode dio 0x00000 nodemcu-master-*-integer.bin
 
-3. Check if flashing worked
+3. Check if flashing worked (press the reset button while doing this and wait about 10 sec for the repl to appear)
 
-    cu -l /dev/ttyUSB0
+    cu --nostop -s 115200 -l /dev/ttyUSB0
 
 4. Customize config.lua
 
