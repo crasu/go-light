@@ -1,7 +1,7 @@
 local M, module = {}, ...
 
 function validate(c)
-    return c == "red" or c == "yellow" or c == "red"
+    return c == "green" or c == "yellow" or c == "red"
 end
 
 function M.handle(client, request)
