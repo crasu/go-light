@@ -40,3 +40,9 @@ Lua code to convert a toy traffic light into a extreme feedback device
 ```bash
     ./upload.sh
 ```
+## Preconfigured Ubuntu VM
+
+1. To mitigate driver issues and platform hassle, just install [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/). 
+2. Call ```vagrant up && vagrant reload``` from the repository root.
+4. Call ```vagrant ssh``` to access the VM. 
+5. Continue with chapter 'Firmware for nodemcu' as all reguired dependencies have already been installed. Repository root is available as shared folder ```/vagrant```, changes are immediately propagated to the host.

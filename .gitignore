@@ -1,1 +1,4 @@
 config.lua
+
+.vagrant/
+*.log
