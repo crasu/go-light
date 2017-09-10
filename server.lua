@@ -17,6 +17,8 @@ function init()
     gpio.mode(8, gpio.OUTPUT) -- red GPIO15
     gpio.mode(7, gpio.OUTPUT) -- yellow GPIO13
     gpio.mode(6, gpio.OUTPUT) -- green GPIO12
+    gpio.mode(1, gpio.OUTPUT) -- pedestrian red GPIO5
+    gpio.mode(2, gpio.OUTPUT) -- pedestrian green GPIO4
 end
 
 init()
@@ -30,17 +32,22 @@ srv:listen(80, function(conn)
                 gpio.write(8, gpio.HIGH)
                 gpio.write(7, gpio.LOW)
                 gpio.write(6, gpio.LOW)
+                gpio.write(1, gpio.LOW)
+                gpio.write(2, gpio.HIGH)
             elseif color == "yellow" then
                 gpio.write(8, gpio.LOW)
                 gpio.write(7, gpio.HIGH)
                 gpio.write(6, gpio.LOW)
+                gpio.write(1, gpio.HIGH)
+                gpio.write(2, gpio.LOW)
             else
                 gpio.write(8, gpio.LOW)
                 gpio.write(7, gpio.LOW)
                 gpio.write(6, gpio.HIGH)
+                gpio.write(1, gpio.HIGH)
+                gpio.write(2, gpio.LOW)
             end
         end
     end)
     conn:on("sent", function(sck) sck:close() end)
 end)
-
